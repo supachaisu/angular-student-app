@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { StudentService } from './student.service';
+import { Student } from './student';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +12,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'student-app';
+  students: Student[] = [];
+  studentService = inject(StudentService);
+
+  constructor() {
+    this.students = this.studentService.getStudents();
+  }
 }
