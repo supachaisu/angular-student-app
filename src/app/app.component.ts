@@ -52,6 +52,13 @@ export class AppComponent {
       lastName: this.addStudentForm.value.lastName,
       isEditing: false,
     });
+
+    this.addStudentForm.reset();
+    // focus on first name input
+    const firstNameInput = document.querySelector(
+      'input[name="firstName"]'
+    ) as HTMLInputElement;
+    firstNameInput?.focus();
   }
 
   toggleEdit(student: Student): void {
